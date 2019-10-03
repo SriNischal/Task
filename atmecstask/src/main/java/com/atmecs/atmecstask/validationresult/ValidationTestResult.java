@@ -12,10 +12,12 @@ import com.atmecs.atmecstask.testsuite.TestBase;
 import com.atmecs.atmecstask.utils.ReadLocatorsFile;
 
 public class ValidationTestResult extends TestBase{
-	
+	static Properties properties, properties1;
+	static String actualbreadcrumb1, actualcontent11;
 	public static void validation() throws IOException {
 		LogReport log=new LogReport();
-		
+		properties = ReadLocatorsFile.loadProperty(ProjectBaseConstantPaths.LOCATORS_FILE2);
+		properties1 = ReadLocatorsFile.loadProperty(ProjectBaseConstantPaths.TESTDATA_FILE);
    String actualcontent=driver.findElement(By.xpath("//h1[text()='Services']")).getText();
    String expectedcontent="Services";
    Assert.assertEquals(actualcontent,expectedcontent ,"actual not equal expected");
